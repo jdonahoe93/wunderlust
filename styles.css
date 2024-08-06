@@ -1,0 +1,582 @@
+/* John Donahoe */
+
+@import url('https://fonts.googleapis.com/css2?family=Molle&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+:root{
+    --yellow: #F6D64A;
+    --teal: #55BCD5;
+    --purple: #9B26B0;
+    --blue: #499BD2;
+    --dark-gray: #222222;
+    --light-gray: #EAEAEA;
+    --white: #FFFFFF;
+    --black: #000000;
+}
+
+#skip {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+}
+
+.sr-only {
+	position: absolute;
+	left: -10000px;
+	top: auto;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+
+h1, h2, h3 {
+	font-family: "Molle", cursive;
+	font-weight: 400;
+	font-style: italic;
+	font-size: 50px;
+}
+
+h4, p, q, small, nav, button, form {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	font-size: 16px;
+}
+
+body {
+    line-height: 1.5;
+}
+
+/* Mobile Styles */
+
+/* Header */
+header {
+	display: grid;
+	grid-template-columns: 1FR 1FR;
+	grid-template-rows: 1FR 1FR 1FR;
+	background-image: linear-gradient(to bottom, var(--blue), var(--white));
+	grid-gap: 1px;
+}
+
+#logo {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+nav {
+	grid-column: 2;
+	grid-row: 1;
+	justify-self: end;
+}
+
+h1 {
+	grid-row: 2;
+	grid-column: span 2;
+	text-align: center;
+}
+
+header p {
+	grid-row: 3;
+	grid-column: span 2;
+	text-align: center;
+	padding: 1.5EM 1.5EM;
+}
+
+#menu-toggle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+#menu-toggle input {
+    display: none;
+}
+
+#menu-toggle label {
+    padding: 1EM 3EM;
+    background-color: var(--yellow);
+    text-align: center;
+	cursor: pointer;
+}
+
+#menu-toggle input:checked ~ label {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: var(--black);
+	color: var(--white);
+}
+
+#menu-toggle ul {
+    position: absolute;
+    left: -10000px;
+}
+
+#menu-toggle input:checked ~ ul {
+	position: absolute;
+	left: 0;
+	top: 3EM;
+	text-align: center;
+	width: 100%;
+	max-height: 100%;
+}
+
+#menu-toggle a {
+	display: block;
+	background-color: var(--teal);
+	color: var(--black);
+	text-decoration: none;
+	padding: 1EM;
+	border: 0.5px solid var(--black);
+}
+
+#menu-toggle a:hover {
+	background-color: var(--yellow);
+}
+
+/* Intro */
+#intro {
+	padding: 1EM 1EM;
+}
+
+#img-grid {
+	display: grid;
+	grid-gap: 1EM;
+}
+
+#img-grid img {
+	width: 100%;
+	height: 100%;
+}
+
+/* Plan */
+#plan {
+    background-color: var(--yellow);
+	text-align: center;
+}
+
+#plan div {
+	display: grid;
+	grid-template-columns: .75FR;
+	justify-content: center;
+	grid-gap: 1EM;
+	font-weight: bold;
+	padding-top: 1EM;
+	padding-bottom: 1EM;
+}
+
+#plan section {
+	background-color: var(--teal);
+	border-radius: 10px;
+	border: 5px solid var(--white);
+}
+
+#plan img {
+	display: block;
+	max-width: 100%;
+	padding: 1EM;
+	margin: 0 auto;
+}
+
+/* Testimonials */
+#testimonials {
+	padding: 2EM;
+}
+
+#testimonials div {
+	display: grid;
+	grid-template-columns: .75FR;
+	justify-content: center;
+	grid-gap: 1EM;
+	text-align: center;
+}
+
+#testimonials h4 {
+    font-weight: bold;
+}
+
+#testimonials q {
+    font-style: italic;
+}
+
+#testimonials q:before {
+    content: '"';
+}
+
+#testimonials q:after {
+    content: '"';
+}
+
+/* About */
+#about {
+	background-color: var(--blue);
+	padding: 2EM;
+}
+
+#about div {
+	display: grid;
+	grid-template-columns: 1FR 1FR;
+	grid-gap: 1EM;
+}
+
+#about section {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+#about img {
+	display: block;
+	max-width: 100%;
+	padding: 1EM;
+	margin: 0 auto;
+}
+
+#about h4 {
+    font-weight: bold;
+}
+
+/* Contact */
+#contact {
+	padding: 2EM;
+}
+
+.form-required {
+	font-style: italic;
+	font-family: "Montserrat";
+}
+
+.required {
+    color: var(--purple);
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+form label:not(fieldset label) {
+	font-weight: bold;
+}
+
+form legend {
+	font-weight: bold;
+}
+
+form input {
+    padding: 2EM;
+    border: 3px solid var(--purple);
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="radio"] {
+	width: 3EM;
+    height: 3EM;
+	accent-color: var(--purple);
+}
+
+select {
+    padding: 2EM;
+    border: 3px solid var(--purple);
+}
+
+#mySubmit {
+    margin-top: 2EM;
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1EM;
+    background-color: var(--light-gray);
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--black);
+    padding: 1EM;
+}
+
+/* Medium Screen Styles */
+@media screen and (min-width: 650px) {
+
+	/* Header */
+	header {
+		display: grid;
+		grid-template-columns: 1FR 3FR;
+		grid-template-rows: 1FR 1FR 1FR;
+	}
+
+	#logo {
+		grid-column: 1;
+		grid-row: 1 / span 2;
+	}
+
+	h1 {
+		grid-column: 2;
+		grid-row: 1;
+		justify-self: start;
+		align-self: end;
+	}
+
+	header p {
+		grid-column: 2;
+		grid-row: 2;
+		justify-self: start;
+		align-self: start;
+	}
+
+	nav {
+		grid-column: 1 / span 2;
+		grid-row: 3;
+		justify-self: center;
+		width: 80%;
+	}
+
+    #menu-toggle label {
+        display: none;
+    }
+
+	#menu-toggle ul {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+        position: relative;
+        top: auto;
+        left: auto;
+	}
+
+	#menu-toggle li {
+        text-align: center;
+		width: 100%;
+		max-width: 25%;
+		margin: 0.25EM;
+	}
+
+	#menu-toggle a {
+        background-color: var(--white);
+    }
+
+	/* Intro */
+	#intro {
+		padding: 4EM 4EM;
+	}
+
+	#img-grid {
+		width: 100%;
+		display: grid;
+		grid-template-rows: 1FR 1FR;
+		grid-template-columns: 1FR 1FR;
+	}
+
+	#img-grid picture {
+		grid-row: 2;
+		grid-column: span 2;
+	}
+
+	/* Plan */
+	#plan {
+		text-align: center;
+		padding: 4EM 4EM;
+	}
+
+	#plan h3 {
+		text-align: left;
+	}
+
+	#plan div {
+		display: grid;
+		grid-template-columns: 1FR 1FR;
+		grid-column-gap: 1EM;
+	}
+
+	/* Testimonials */
+	#testimonials {
+		padding: 4EM 4EM;
+	}
+
+	#testimonials div {
+		display: grid;
+		grid-template-columns: 1FR 1FR;
+		grid-column-gap: 1EM;
+	}
+
+	/* About */
+	#about {
+		padding: 4EM;
+	}
+
+	#about div {
+		display: grid;
+		grid-template-columns: repeat(4, 1FR);
+		grid-column-gap: 1EM;
+	}
+
+	/* Contact */
+    #contact {
+        padding: 4EM;
+    }
+
+	fieldset {
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: center;
+	}
+
+	#mySubmit {
+		width: 30%;
+		margin-left: auto;
+	}
+
+	/* Footer */
+	footer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+		padding: 1EM;
+		background-color: var(--light-gray);
+	}
+	
+	footer a {
+		text-decoration: none;
+		color: var(--black);
+		padding: 1EM;
+	}
+
+}
+
+/* Large Screen Styles */
+@media screen and (min-width: 1200px) {
+	/* Header */
+	header {
+		display: grid;
+		grid-template-rows: 1FR 1FR 1FR;
+		grid-template-columns: 0.75FR 1.5FR 3FR;
+	}
+
+	#logo {
+		grid-column: 1;
+		grid-row: span 2;
+	}
+
+	h1 {
+		grid-column: 2;
+		justify-self: start;
+		align-self: end;
+	}
+
+	header p {
+		grid-column: 2 / span 2;
+		grid-row: 2;
+		justify-self: start;
+		align-self: start;
+		padding: 1EM;
+	}
+
+	nav {
+		grid-row: 1;
+		grid-column: 3;
+		width: 100%;
+	}
+
+	#menu-toggle ul {
+		display: flex;
+		justify-content: space-evenly;
+		width: 100%;
+        position: relative;
+        top: -6px;
+        left: auto;
+	}
+
+	/* Intro */
+	#intro {
+		display: grid;
+		grid-template-columns: 0.75FR 1FR;
+		grid-template-rows: .15FR 1FR;
+		grid-gap: 2EM;
+	}
+
+	#intro p {
+		grid-column: 1;
+		grid-row: 2;
+	}
+
+	#img-grid {
+        grid-column: 2;
+        grid-row: span 2;
+	}
+
+	/* Plan */
+	#plan div {
+		display: grid;
+		grid-template-columns: repeat(4, 1FR);
+		grid-column-gap: 1EM;
+	}
+
+	/* Testimonials */
+	#testimonials div {
+		display: grid;
+		grid-template-columns: repeat(4, 1FR);
+		grid-column-gap: 1EM;
+	}
+
+	/* Contact */
+	form {
+		display: grid;
+		grid-template-columns: repeat(3, 1FR);
+		grid-gap: 1EM;
+	}
+}
